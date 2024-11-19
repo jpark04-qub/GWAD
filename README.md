@@ -21,7 +21,7 @@ networks and their weights can be downloaded from (https://github.com/huyvnphan/
 
 `python main.py --config [path to config file] --start_idx [start index] --num_images [number of images] --disable_logging`
 
-'python demo.py --data cifar10 --attack [attack method] --scenario [attack scenario]'
+`python demo.py --data cifar10 --attack [attack method] --scenario [attack scenario]`
 
 Arguments 
 - attack method   : hsja, nes, sign-flip
