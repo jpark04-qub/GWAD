@@ -31,10 +31,6 @@ def check_cfg(cfg):
 
 
 def main(args):
-    args.data = "cifar10"
-    args.attack = "sign-flip"
-    args.scenario = "batch"
-
     json_file = "configs/" + args.data + "/" + args.attack + "/" + "cfg_" + args.scenario + ".json"
     cfg = json.load(open(json_file))
     check_cfg(cfg)
