@@ -22,8 +22,8 @@ networks and their weights can be downloaded from (https://github.com/huyvnphan/
 python demo.py --data cifar10 --attack [attack method] --scenario [attack scenario]
 
 Arguments 
-attack method   : hsja, nes, sign-flip
-attack scenario : benign, standard, batch
+- attack method   : hsja, nes, sign-flip
+- attack scenario : benign, standard, batch
 
 Example for standard hsja attack
 python demo.py --data cifar10 --attack hsja --scenario standard
