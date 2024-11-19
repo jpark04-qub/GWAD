@@ -1,9 +1,6 @@
 {
   "attack": {
     "name": "sign-flip",
-    "eps": 255,
-    "sigma": 0.1,
-    "lr": 0.55,
     "adaptive": {
       "name": "batch",
       "batch_size": 10,
@@ -13,7 +10,7 @@
   "gwad": {
     "screen": {
       "on": true,
-      "n": 200,
+      "n": 100,
       "thold" : 0.4
     },
     "model": {

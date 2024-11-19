@@ -137,7 +137,7 @@ def attack(device, cfg, data_type, model, delta_net, loader):
 
         # instantiate attack model to conduct fresh attack
         attack = ATTACK_MODEL(data_type, device, stats.attack, cfg_attack,
-                              d_model=gwad_def.run, q_budgets=q_budgets, stop=True)
+                              d_model=gwad_def.run, q_budgets=q_budgets, stop=False)
 
         # set adaptive attack
         attack.set_adaptive(adapt_type, batch_size, x2_pool)

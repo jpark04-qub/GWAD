@@ -10,7 +10,7 @@
   "gwad": {
     "screen": {
       "on": true,
-      "n": 1000,
+      "n": 100,
       "thold" : 0.4
     },
     "model": {

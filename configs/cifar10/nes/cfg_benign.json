@@ -1,11 +1,8 @@
 {
   "attack": {
     "name": "nes",
-    "eps": 255,
-    "sigma": 0.1,
-    "lr": 0.55,
     "adaptive": {
-      "name": "batch",
+      "name": "none",
       "batch_size": 10,
       "pool_size": 5000
     }
