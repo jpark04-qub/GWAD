@@ -4,7 +4,7 @@
     "adaptive": {
       "name": "none",
       "batch_size": 10,
-      "pool_size": 5000
+      "pool_size": 2000
     }
   },
   "gwad": {
