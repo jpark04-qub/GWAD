@@ -13,13 +13,14 @@ networks and their weights can be downloaded from (https://github.com/huyvnphan/
 # Attack Classifier (Delta-Net)
 - Network and pretrained model (weights) are included in net/delta and model/delta
 
-# Setup and run
+# Setup 
 - Create "model/cifar10" and "data" directories for weights and dataset respectively
 - Download weights resnet18.pt (refer to utilities/load_model to use other models and weigths))
 - Download cifar10 dataset (CIFAR-10 python version from https://www.cs.toronto.edu/~kriz/cifar.html)
 - Run by invoking `demo.py` as follows:
 
-`python main.py --config [path to config file] --start_idx [start index] --num_images [number of images] --disable_logging`
+# Run
+Run by invoking `demo.py` as follows:
 
 `python demo.py --data cifar10 --attack [attack method] --scenario [attack scenario]`
 
