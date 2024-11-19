@@ -18,9 +18,11 @@ networks and their weights can be downloaded from (https://github.com/huyvnphan/
 - Download weights resnet18.pt (refer to utilities/load_model to use other models and weigths))
 - Download cifar10 dataset (CIFAR-10 python version from https://www.cs.toronto.edu/~kriz/cifar.html)
 - Run by invoking `demo.py` as follows:
+- 
 '''
 'python demo.py --data cifar10 --attack [attack method] --scenario [attack scenario]'
 '''
+
 Arguments 
 - attack method   : hsja, nes, sign-flip
 - attack scenario : benign, standard, batch
