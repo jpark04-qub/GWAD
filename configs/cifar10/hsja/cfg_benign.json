@@ -1,0 +1,23 @@
+{
+  "attack": {
+    "name": "hsja",
+    "adaptive": {
+      "name": "none",
+      "batch_size": 10,
+      "pool_size": 2000
+    }
+  },
+  "gwad": {
+    "screen": {
+      "on": false,
+      "n": 50,
+      "thold" : 0.4
+    },
+    "model": {
+      "name": "resnet18",
+      "data_mu": [0.4914, 0.4822, 0.4465],
+      "data_std": [0.247, 0.243, 0.261],
+      "data_format": "tensor"
+    }
+  }
+}
