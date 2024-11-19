@@ -1,5 +1,5 @@
 # GWAD
-# GWAD : The Gradient's Watch Detecting Black-box Adversarial Attacks in the Making
+# GWAD : Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis
 
 # Dependencies
 - pytorch
