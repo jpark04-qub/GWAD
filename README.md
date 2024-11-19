@@ -25,7 +25,7 @@ Arguments
 - attack method   : hsja, nes, sign-flip
 - attack scenario : benign, standard, batch
 
-Example for standard hsja attack
+# Example for standard hsja attack
 python demo.py --data cifar10 --attack hsja --scenario standard
 
 
