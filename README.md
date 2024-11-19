@@ -19,9 +19,6 @@ networks and their weights can be downloaded from (https://github.com/huyvnphan/
 - Download cifar10 dataset (CIFAR-10 python version from https://www.cs.toronto.edu/~kriz/cifar.html)
 - Run by invoking `demo.py` as follows:
 
-### 2.1. Usage
-You'll want to run things by invoking `main.py` with a config file as follows:
-
 `python main.py --config [path to config file] --start_idx [start index] --num_images [number of images] --disable_logging`
 
 Arguments are hopefully self-explanatory:
