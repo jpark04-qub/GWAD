@@ -101,6 +101,8 @@ def attack(device, cfg, data_type, model, delta_net, loader):
     adapt_type = cfg_attack["adaptive"]["name"]
     batch_size = cfg_attack["adaptive"]["batch_size"]
     pool_size = cfg_attack["adaptive"]["pool_size"]
+    move_rate = cfg_attack["adaptive"]["move_rate"]
+    q_budgets = [cfg_attack["query_budget"]]
 
     # ready statistics
     stats = Statistics()
@@ -110,9 +112,6 @@ def attack(device, cfg, data_type, model, delta_net, loader):
     # - evaluate model : to inject generated adversarial example
     gwad_def = GWAD(device, cfg_gwad, stats.gwad, mode='defence', model=model, delta_net=delta_net)
     gwad_evl = GWAD(device, cfg_gwad, stats.gwad, mode='evaluate', model=model, delta_net=delta_net)
-
-    # set query budget for attack methods
-    q_budgets = [20000]
 
     # show setting
     print("\nsequence of queries : attack \n{} {} {} {}".format(data_type, model.name, attack_name, delta_net.name))
@@ -140,7 +139,7 @@ def attack(device, cfg, data_type, model, delta_net, loader):
                               d_model=gwad_def.run, q_budgets=q_budgets, stop=False)
 
         # set adaptive attack
-        attack.set_adaptive(adapt_type, batch_size, x2_pool)
+        attack.set_adaptive(adapt_type, move_rate, batch_size, x2_pool)
 
         # perform adversarial attack on current data
         t0 = time.perf_counter()
@@ -161,7 +160,7 @@ def attack(device, cfg, data_type, model, delta_net, loader):
         total_gwad_predict = show_predicrions(gwad_def, hx_record, total_gwad_predict)
 
         # show attack statistics
-        print("Attack stats : num - time [true] : [adv][suc/total, dist, ratio, [i1] [i2] [i3]]")
+        print("Attack stats : num - time [true] : [adv][val/suc, dist, ratio, [i1] [i2] [i3]]")
         print("{} - {:.3f}s [{}] : ".format(stats.gwad.runs, t1-t0, true_class.item()), end='')
         stats.attack.show_stats()
 
