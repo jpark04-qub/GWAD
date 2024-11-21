@@ -125,6 +125,7 @@ class SignFlip(HardLabelAttackBase):
         w_dr = self.shape[3]//self.scale
 
         eta = torch.randn([self.shape[0], self.shape[1], h_dr, w_dr])
+        eta = self.varying_random_vector(eta)
         eta = eta.sign() * self.alpha
         eta = self.resize(eta, self.shape[2], self.shape[3])
         eta = eta.to(self.device)

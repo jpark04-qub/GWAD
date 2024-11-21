@@ -35,6 +35,7 @@ class AdaptiveAttacks:
         self.x2_idx = 0
         self.x2_factor = 4.5
         self.query_cnt = 0
+        self.max = 0
 
     def reset(self, pool):
         # pool is split into  two sub-pools to avoid duplicate examples
@@ -63,31 +64,33 @@ class AdaptiveAttacks:
         return eta
 
     def varying_random_variance(self, eta, rate):
-        m0 = torch.min(eta)
-        m1 = torch.max(eta)
+        #m0 = torch.min(eta)
+        #m1 = torch.max(eta)
+        #m3 = torch.var(eta)
 
-        m3 = torch.var(eta)
-
-        sigma = torch.rand(1).to(eta.device)
-        if sigma > 1.0:
-            sigma = 1.0
+        alpha = torch.rand(1).to(eta.device)
+        if alpha > 1.0:
+            alpha = 1.0
         # positive bound of mean - ratio of distribution variance
-        sigma *= rate
+        alpha *= rate
+        """
         # sign of mean
         sign = torch.randn(1).to(eta.device)
         sign /= torch.abs(sign)
-
         r = sign*sigma
         if r > rate or r < (-1)*rate:
             sigma = sigma
-
-        sigma = 1+sign*sigma
+        sigma = sign*sigma
         if sigma < 0:
             sigma = 1e-10
+        """
+        if alpha > self.max:
+            self.max = alpha
+        if alpha < 0.1:
+            alpha = 0.1
+        eta = eta * alpha
 
-        eta = eta * sigma
-
-        m4 = torch.var(eta)
+        #m4 = torch.var(eta)
         return eta
 
     def multi_agent(self, model, x, n):
@@ -96,9 +99,9 @@ class AdaptiveAttacks:
 
     def dummy_benign(self, model, x, n):
         # [r_i benign examples] -> [x] -> [r_j benign examples]
-        #r = torch.rand(1)
-        #r = torch.round(r * n)
-        r = n
+        r = torch.rand(1)
+        r = torch.round(n + r/2)
+        #r = n
         for i in range(int(r)):
             if self.x2_idx >= self.x2_size:
                 self.x2_idx = 0
@@ -135,7 +138,8 @@ class BlackBoxAtackCommonBase:
         self.perturbation = perturbation # perturbation direction: NES = increase, HSJA = decrease
         self.adaptive = AdaptiveAttacks(device)
         self.adapt_type = None
-        self.adapt_rate = 0.1
+        self.move_rate = 0.1
+        self.batch_size = 10
         self.query_data = Query()
 
     def model_(self, x, type):
@@ -147,7 +151,7 @@ class BlackBoxAtackCommonBase:
     def inject(self, x):
         if self.adapt_type == 'batch':
             # dummy input with benign.
-            output = self.adaptive.dummy_benign(self.model_, x, self.adapt_rate)
+            output = self.adaptive.dummy_benign(self.model_, x, self.batch_size)
         else:
             output = self.model_(x, 'attack')
         return output
@@ -174,18 +178,19 @@ class BlackBoxAtackCommonBase:
                 flag = True
         return flag
 
-    def set_adaptive(self, adapt_type, adapt_rate, x2_pool):
+    def set_adaptive(self, adapt_type, move_rate, batch_size, x2_pool):
         self.adapt_type = adapt_type
-        self.adapt_rate = adapt_rate
+        self.move_rate = move_rate
+        self.batch_size = batch_size
         self.adaptive.reset(x2_pool)
 
     def varying_random_vector(self, eta):
         if self.adapt_type == 'rm':
             # variation in mean of random distribution
-            eta = self.adaptive.varying_random_mean(eta, self.adapt_rate)
+            eta = self.adaptive.varying_random_mean(eta, self.move_rate)
         elif self.adapt_type == 'rv':
             # variation in variance of random distribution
-            eta = self.adaptive.varying_random_variance(eta, self.adapt_rate)
+            eta = self.adaptive.varying_random_variance(eta, self.move_rate)
         return eta
 
     def stop_criteria(self, x, x_adv):
