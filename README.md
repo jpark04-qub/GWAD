@@ -6,6 +6,8 @@
 - numpy
 - skimage
 - tqdm (optional)
+- json
+- argparse
 
 # Pretrained Model
 networks and their weights can be downloaded from (https://github.com/huyvnphan/PyTorch_CIFAR10?tab=readme-ov-file)
