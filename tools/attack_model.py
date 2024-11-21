@@ -30,8 +30,8 @@ class AttackModel():
                 self.stats.pass_num += 1
         return
 
-    def set_adaptive(self, adapt_type, adapt_rate, x2_pool):
-        self.method.alg.set_adaptive(adapt_type, adapt_rate, x2_pool)
+    def set_adaptive(self, adapt_type, move_rate, batch_size, x2_pool):
+        self.method.alg.set_adaptive(adapt_type, move_rate, batch_size, x2_pool)
 
     def run(self, x, y):
         adv, self.stats.iter0, self.stats.iter1, self.stats.iter2 = self.method.run(x, y)
