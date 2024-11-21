@@ -1,8 +1,10 @@
 {
   "attack": {
     "name": "nes",
+    "query_budget": 10000,
     "adaptive": {
       "name": "batch",
+      "move_rate": 1.0,
       "batch_size": 10,
       "pool_size": 2000
     }
