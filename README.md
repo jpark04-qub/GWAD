@@ -42,9 +42,4 @@ If you use GWAD for your research, please cite the paper:
   title   = {Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis},
   year    = {2025},
 }
-
-
-
-
-
-
+```
