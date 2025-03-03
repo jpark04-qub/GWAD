@@ -33,6 +33,16 @@ Example for standard HSJA attack:
 
 `python demo.py --data cifar10 --attack hsja --scenario standard`
 
+# Citation
+If you use GWAD for your research, please cite the paper:
+```
+@Article{GWAD,
+  author  = {J. Park and N. McLaughlin and P. Miller},  
+  journal = {IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  title   = {Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis},
+  year    = {2025},
+}
+
 
 
 
