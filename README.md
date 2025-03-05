@@ -1,5 +1,5 @@
 # GWAD
-# GWAD : Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis
+# Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis
 
 # Dependencies
 - pytorch
