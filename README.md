@@ -1,5 +1,6 @@
 # GWAD
 # Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis
+Pytorch code for CVPR 2025 paper Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis. This repository contains the demo code for reproducing the experimental results of GWAD and GWAD+. 
 
 # Dependencies
 - pytorch
