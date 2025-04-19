@@ -36,7 +36,8 @@ Example for standard HSJA attack:
 
 Statistics report: 
 
-`benign[0], hsja[9745], nes[0], simba[0], sign-opt[0], sign-flip[0], ba[0],` --> Attack classes predicted by GWAD 
+`benign[0], hsja[9745], nes[0], simba[0], sign-opt[0], sign-flip[0], ba[0],` --> Attack classes predicted by GWAD
+
 `1 - 81.777s [3] : [2][1/1, 1.728 0.041, [10004] [11] [0]]` --> Attack ID - Time [True class] : [Adversarial class][Num of valid attack/Num of successful attack,  
 average attack queries - 10004
 GWAD screen : [screened dummy] [screened attack] [passed dummy] [passed attack]
