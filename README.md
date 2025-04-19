@@ -34,9 +34,11 @@ Example for standard HSJA attack:
 
 `python demo.py --data cifar10 --attack hsja --scenario standard`
 
-```
-GWAD_defence starts
-GWAD_defence : first detection [hsja] made @ 260th query  
+Statistics report: 
+
+`GWAD_defence : first detection [hsja] made @ 260th query` 
+GWAD detected HSJA attack at 260th query
+
 GWAD_defence : delta-net predicted 9745 HoDS during 10004 queries
 GWAD_defence : accumulated predictions 9745/9745
 benign[0], hsja[9745], nes[0], simba[0], sign-opt[0], sign-flip[0], ba[0], --> Attack classes predicted by GWAD 
