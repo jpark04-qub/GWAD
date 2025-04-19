@@ -34,7 +34,7 @@ Example for standard HSJA attack:
 
 `python demo.py --data cifar10 --attack hsja --scenario standard`
 
-Statistics report: 
+Example for statistics report: 
 
 ```
 GWAD_defence starts
