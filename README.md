@@ -34,8 +34,7 @@ Example for standard HSJA attack:
 
 `python demo.py --data cifar10 --attack hsja --scenario standard`
 
-Example for statistics report: 
-
+# Statistics report
 ```
 GWAD_defence starts
 GWAD_defence : first detection [hsja] made @ 260th query
@@ -46,7 +45,7 @@ Attack stats : num - time [true] : [adv][val/suc, dist, ratio, [i1] [i2] [i3]]
 1 - 81.777s [3] : [2][1/1, 1.728 0.041, [10004] [11] [0]]
 average attack queries - 10004
 GWAD screen : [screened dummy] [screened attack] [passed dummy] [passed attack]
-[0] [2] [0] [10002] --> Screener ignored 2 attack queries and passed 10002 attack queries to GWAD
+[0] [2] [0] [10002] --> Screener screened out 2 attack queries and passed 10002 attack queries to GWAD
 ```
 
 # Citation
