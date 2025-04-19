@@ -43,7 +43,7 @@ GWAD_defence : accumulated predictions 9745/9745
 benign[0], hsja[9745], nes[0], simba[0], sign-opt[0], sign-flip[0], ba[0], --> 9745 queries predicted as HSJA by GWAD
 Attack stats : num - time [true] : [adv][val/suc, dist, ratio, [i1] [i2] [i3]]
 1 - 81.777s [3] : [2][1/1, 1.728 0.041, [10004] [11] [0]]
-average attack queries - 10004  $${\color{red}  aaa}$$
+average attack queries - 10004  $${\color{red}aaa}$$
 GWAD screen : [screened dummy] [screened attack] [passed dummy] [passed attack]
 [0] [2] [0] [10002] --> Screener screened out 2 attack queries and passed 10002 attack queries to GWAD
 ```
